@@ -3,7 +3,7 @@
 <nav>
 <ul>
         <ul>
-            <li><a class="{{ page == "home" ? "bold" : "" }}" href='/home'>Home</a></li>
+            <li><a class="{{ page == "home" ? "bold" : "" }}" href='/'>Home</a></li>
             {% if (app.user) %}
             <li><a class="{{ page == "tasks" ? "bold" : "" }}" href='/tasks'>Tasks</a></li>
             {% else %}

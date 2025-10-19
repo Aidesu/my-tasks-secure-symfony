@@ -24,6 +24,11 @@ header {
     z-index: 9999;
 }
 
+button {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 header img {
     width: 9rem;
 }
@@ -71,10 +76,14 @@ header li {
 }
 
 #profileSection ul {
-    margin-top: 15rem;
+    margin-top: 10rem;
     display: flex;
     justify-content: space-evenly;
     list-style: none;
+    background-color: #141414;
+    border-radius: 15px;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
 #profileSection img {
@@ -124,6 +133,18 @@ header li {
     right: 5rem;
 }
 
+.btnPos3 {
+    position: fixed;
+    bottom: 8rem;
+    left: 5rem;
+}
+
+.btnPos4 {
+    position: fixed;
+    top: 9rem;
+    right: 5rem;
+}
+
 .redBg {
     background-color: #a01707;
 }
@@ -153,6 +174,7 @@ form input {
     border-radius: 10px;
     color: white;
     padding-left: 0.5rem;
+    font-size: 18px;
 }
 
 form label {
@@ -377,4 +399,9 @@ footer ul {
 
 #tasksSection ol li {
     padding: 0;
+}
+
+#user {
+    display: flex;
+    flex-direction: column;
 }

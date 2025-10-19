@@ -7,7 +7,7 @@
 
     {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_user_index') }}">back to list</a>
+    <a class="btn orangeBg btnPos3" href="{{ path('app_account') }}">back to my profile</a>
 
     {{ include('user/_delete_form.html.twig') }}
 {% endblock %}

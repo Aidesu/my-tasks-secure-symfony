@@ -17,13 +17,13 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('username')
-            ->add('first_name')
-            ->add('last_name')
-            ->add('phone')
-            ->add('country')
-            ->add('image')
-            ->add('email')
+            ->add('username', null, ['attr' => ['placeholder' => 'Enter your username here ...']])
+            ->add('first_name', null, ['attr' => ['placeholder' => 'Enter your first name here ...']])
+            ->add('last_name', null, ['attr' => ['placeholder' => 'Enter your last name here ...']])
+            ->add('phone', null, ['attr' => ['placeholder' => 'Enter your phone number here ...']])
+            ->add('country',null , ['attr' => ['placeholder' => 'Enter your country here ...']])
+            ->add('image', null, ['attr' => ['placeholder' => 'Enter your image address url ...']])
+            ->add('email', null, ['attr' => ['placeholder' => 'Enter your email address here ...']])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
@@ -36,13 +36,13 @@ class RegistrationFormType extends AbstractType
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
+                'attr' => ['autocomplete' => 'new-password', 'placeholder' => 'Enter your password here ...'],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',
                     ]),
                     new Length([
-                        'min' => 6,
+                        'min' => 8,
                         'minMessage' => 'Your password should be at least {{ limit }} characters',
                         // max length allowed by Symfony for security reasons
                         'max' => 64,

@@ -57,7 +57,6 @@ final class TasksController extends AbstractController
         return $this->render('tasks/new.html.twig', [
             'task' => $task,
             'form' => $form,
-            'connected' => true,
             'page' => "tasks",
         ]);
     }
@@ -90,7 +89,6 @@ final class TasksController extends AbstractController
         return $this->render('tasks/edit.html.twig', [
             'task' => $task,
             'form' => $form,
-            'connected' => true,
             'page' => "tasks",
         ]);
     }
