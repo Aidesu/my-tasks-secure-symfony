@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #1e1e1e;
+    background-image: url("https://t3.ftcdn.net/jpg/01/87/78/52/360_F_187785272_IYDuTUwv2ksNUPPrE7a8OrcOZFRtqI3z.jpg");
     color: white;
 }
 
@@ -80,7 +80,8 @@ header li {
     display: flex;
     justify-content: space-evenly;
     list-style: none;
-    background-color: #141414;
+    background-color: #141414cd;
+    border: solid #0f77ef 4px;
     border-radius: 15px;
     padding-top: 5rem;
     padding-bottom: 5rem;
