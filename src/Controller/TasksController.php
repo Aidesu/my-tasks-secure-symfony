@@ -17,17 +17,33 @@ final class TasksController extends AbstractController
     #[Route(name: 'app_tasks_index', methods: ['GET'])]
     public function index(TasksRepository $tasksRepository): Response
     {
+
+        $user = $this->getUser();
+
         return $this->render('tasks/index.html.twig', [
-            'tasks' => $tasksRepository->findAll(),
+            'tasks' => $tasksRepository->findBy(['user_id' => $user->getId()]),
             'connected' => true,
             'page' => "tasks",
         ]);
     }
 
+    // #[Route(name: 'app_tasks_index', methods: ['GET'])]
+    // public function index(TasksRepository $tasksRepository): Response
+    // {
+    //     return $this->render('tasks/index.html.twig', [
+    //         'tasks' => $tasksRepository->findAll(),
+    //         'connected' => true,
+    //         'page' => "tasks",
+    //     ]);
+    // }
+
     #[Route('/new', name: 'app_tasks_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
+        $user = $this->getUser();
         $task = new Tasks();
+        $task->setUserId($user);
+        $task->setStatus(false);
         $form = $this->createForm(TasksType::class, $task);
         $form->handleRequest($request);
 
@@ -57,6 +73,7 @@ final class TasksController extends AbstractController
     #[Route('/{id}/edit', name: 'app_tasks_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Tasks $task, EntityManagerInterface $entityManager): Response
     {
+        $user = $this->getUser();
         $form = $this->createForm(TasksType::class, $task);
         $form->handleRequest($request);
 
@@ -66,9 +83,15 @@ final class TasksController extends AbstractController
             return $this->redirectToRoute('app_tasks_index', [], Response::HTTP_SEE_OTHER);
         }
 
+        if ($user != $task->getUserId()){
+            return $this->redirectToRoute('app_tasks_index', [], Response::HTTP_SEE_OTHER);
+        }
+
         return $this->render('tasks/edit.html.twig', [
             'task' => $task,
             'form' => $form,
+            'connected' => true,
+            'page' => "tasks",
         ]);
     }
 
@@ -77,6 +100,19 @@ final class TasksController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete'.$task->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($task);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('app_tasks_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/tasks/{id}/toggle', name: 'app_tasks_toggle', methods: ['GET', 'POST'])]
+    public function toggleStatus(Request $request, Tasks $task, EntityManagerInterface $entityManager): Response
+    {
+        $user = $this->getUser();
+
+        if ($user == $task->getUserId()){
+            $task->setStatus(!$task->isStatus());
             $entityManager->flush();
         }
 
