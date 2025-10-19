@@ -52,7 +52,7 @@ header nav li a {
 
 main {
     width: 1200px;
-    margin: 4rem auto;
+    margin: 0 auto;
     min-height: 80vh;
 }
 
@@ -134,7 +134,7 @@ header li {
 
 h1 {
     text-align: center;
-    margin-top: 8rem;
+    margin-top: 6rem;
     margin-bottom: 3rem;
 }
 
