@@ -1,23 +1,20 @@
 {% block header %}
 <img src="{{ asset('images/mytaskssecure.png') }}" alt="logo">
 <nav>
-{% if connected %}
 <ul>
         <ul>
-            <li><a class="{{ page == "home" ? "bold" : "" }}" href='/home'>Home</a></li>
+            <li><a class="{{ page == "home" ? "bold" : "" }}" href='/'>Home</a></li>
+            {% if (app.user) %}
             <li><a class="{{ page == "tasks" ? "bold" : "" }}" href='/tasks'>Tasks</a></li>
-            <li><a class="{{ page == "account" ? "bold" : "" }}" href='/account'>{{ app.user.username | default('Account') }}</a> <img id="profilePicNav" src='{{ app.user.image | default('https://i.pinimg.com/736x/83/b0/7f/83b07fe79c4bdcc8e6c27f974c597842.jpg') }}' alt='Profile picture'></li>
+            {% else %}
+            <li><a class="{{ page == "register" ? "bold" : "" }}" href='/register'>Register</a></li>
+            {% endif %}
+            {% if (app.user) %}
+            <li><a class="{{ page == "account" ? "bold" : "" }}" href='/account'>{{ app.user.username }}</a> <img id="profilePicNav" src='{{ app.user.image | default('') }}' alt='Profile picture'></li>
+            {% else %}
+            <li><a class="{{ page == "login" ? "bold" : "" }}" href='/login'>Login</a></li>
+            {% endif %}
         </ul>
 </ul>
-{% else %}
-<ul>
-    <li>
-        <a href="\register">Register</a>
-    </li>
-    <li>
-        <a href="\login">Login</a>
-    </li>
-</ul>
-{% endif %}
 </nav>
 {% endblock %}

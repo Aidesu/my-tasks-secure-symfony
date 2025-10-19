@@ -3,7 +3,60 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<main>
-    <h1>Home page</h1>
-</main>
+<section id="mainPicSection">
+    <div>
+        <ul>
+            <li>
+                <p>Organize now with</p>
+            </li>
+            <li>
+                <h1>mytasks<br>secure</h1>
+            </li>
+        </ul>
+        {% if (app.user) %}
+        <a class="btn blueBg" href="/tasks">Manage your tasks</a>
+        {% else %}
+        <a class="btn blueBg" href="/login">Login</a>
+        {% endif %}
+    </div>
+</section>
+<section id="firstPic">
+    <div>
+        <ul>
+            <li>
+                <h2>Take control of your day with My Tasks Secure.</h2>
+            </li>
+            <li>
+                <p>The ultimate task manager that keeps your workspace organized and your mind free.</p>
+            </li>
+        </ul>
+    </div>
+</section>
+<section id="secPic">
+    <div>
+        <ul>
+
+            <li>
+                <h2>Plan smarter, focus better, get more done.</h2>
+            </li>
+            <li>
+                <p>No chaos, no stress, just clear goals and progress at your fingertips.</p>
+            </li>
+
+        </ul>
+    </div>
+</section>
+<section id="lastPic">
+    <div>
+        <ul>
+            <li>
+                <h2>Your tasks, your goals, your freedom.</h2>
+            </li>
+            <li>
+                <p>All in one secure, easy-to-use app. Organize your life, boost your productivity, and enjoy the feeling of having everything under control.</p>
+            </li>
+        </ul>
+    </div>
+</section>
+
 {% endblock %}

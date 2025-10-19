@@ -15,7 +15,6 @@ final class AccountController extends AbstractController
     public function show(): Response
     {
         return $this->render('account/index.html.twig', [
-        'connected' => true,
         'page' => "account",
         ]);
     }
@@ -42,7 +41,6 @@ final class AccountController extends AbstractController
         return $this->render('user/edit.html.twig', [
             'user' => $user,
             'form' => $form,
-            'connected' => true,
             'page' => "account"
         ]);
     }

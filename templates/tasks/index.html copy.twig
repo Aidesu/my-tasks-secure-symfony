@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tasks index{% endblock %}
+
+{% block body %}
+    <h1>Tasks index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Content</th>
+                <th>Status</th>
+                <th>Color</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.id }}</td>
+                <td>{{ task.content }}</td>
+                <td>{{ task.status ? 'Yes' : 'No' }}</td>
+                <td>{{ task.color }}</td>
+                <td>
+                    <a href="{{ path('app_tasks_show', {'id': task.id}) }}">show</a>
+                    <a href="{{ path('app_tasks_edit', {'id': task.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_tasks_new') }}">Create new</a>
+{% endblock %}

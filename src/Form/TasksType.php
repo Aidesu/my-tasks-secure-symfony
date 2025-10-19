@@ -15,12 +15,6 @@ class TasksType extends AbstractType
     {
         $builder
             ->add('content')
-            ->add('status')
-            ->add('color')
-            ->add('user_id', EntityType::class, [
-                'class' => User::class,
-                'choice_label' => 'id',
-            ])
         ;
     }
 
