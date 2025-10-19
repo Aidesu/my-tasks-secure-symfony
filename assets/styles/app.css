@@ -1,3 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 body {
-    background-color: skyblue;
+    background-color: #1e1e1e;
+    color: white;
+}
+
+header {
+    background-color: #0f78ef;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+header img {
+    width: 9rem;
+}
+
+header nav {
+    width: 45%;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: end;
+    gap: 5rem;
+    align-items: center;
+    list-style: none;
+}
+
+header nav li a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 25px;
+}
+
+main {
+    width: 1000px;
+    margin: 4rem auto;
+    min-height: 60vh;
+}
+
+header li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#profilePicNav {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    object-position: center;
+    object-fit: cover;
+}
+
+#profileSection ul {
+    margin-top: 15rem;
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+}
+
+#profileSection img {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    object-position: center;
+    object-fit: cover;
+}
+
+#profileSection ol {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#profileSection li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+#profileSection h3 {
+    font-size: 25px;
+}
+
+.btn {
+    border: none;
+    border-radius: 10px;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.btnPos1 {
+    position: fixed;
+    bottom: 5rem;
+    right: 5rem;
+}
+
+.btnPos2 {
+    position: fixed;
+    bottom: 8rem;
+    right: 5rem;
+}
+
+.redBg {
+    background-color: #a01707;
+}
+
+.blueBg {
+    background-color: #0f77ef;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 8rem;
+    margin-bottom: 3rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+form input {
+    background-color: #141414;
+    width: 23rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding-left: 0.5rem;
+}
+
+form label {
+    font-size: 20px;
+}
+
+.checkbox label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+#registration_form_agreeTerms {
+    width: 1rem;
+}
+
+form div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 32rem;
+    justify-content: space-between;
+}
+
+.bold {
+    font-weight: bold;
+    color: rgb(233, 183, 34);
+}
+
+footer {
+    background-image: linear-gradient(#041c36, #000000);
+    height: 8rem;
+    margin-top: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer ul {
+    list-style: none;
 }
