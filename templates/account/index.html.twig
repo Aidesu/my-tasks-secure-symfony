@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccountController!{% endblock %}
+
+{% block body %}
+
+<section id="profileSection">
+    <ul>
+    <li>
+        <img src="{{ app.user.image | default("https://i.pinimg.com/736x/83/b0/7f/83b07fe79c4bdcc8e6c27f974c597842.jpg") }}" alt="">
+    </li>
+    <li>
+        <ol>
+            <li>
+                <h4>Username : </h4>
+                <h3>{{ app.user.username }}</h3>
+            </li>
+            <li>
+                <h4>First name : </h4>
+                <h3>{{ app.user.firstName }}</h3>
+            </li>
+            <li>
+                <h4>Last name : </h4>
+                <h3>{{ app.user.lastName }}</h3>
+            </li>
+            <li>
+                <h4>Phone : </h4>
+                <h3>{{ app.user.phone }}</h3>
+            </li>
+        </ol>
+    </li>
+    <li>
+        <ol>
+            <li>
+                <h4>Email address : </h4>
+                <h3>{{ app.user.userIdentifier }}</h3>
+            </li>
+            <li>
+                <h4>Country : </h4>
+                <h3>{{ app.user.country }}</h3>
+            </li>
+            <li>
+                <h4>Password : </h4>
+                <h3>**************</h3>
+            </li>
+        </ol>
+    </li>
+</ul>
+<a class="btn blueBg btnPos2" href="/account/edit">Edit</a>
+<a class="btn redBg btnPos1" href="/logout">Disconnect</a>
+</section>
+
+
+{% endblock %}
